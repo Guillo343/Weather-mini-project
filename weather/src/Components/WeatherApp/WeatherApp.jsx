@@ -1,9 +1,9 @@
 import React from 'react'
 import './Weather.css'
  import cloudy from '../../assets/cloudy-day.png'
- import wind from '../../assets/wind.png'
+  import wind from '../../assets/wind.png'
  import drizzle from '../../assets/drizzle.png'
- import humidity from '../../assets/humidity-logo.png'
+  import humidity from '../../assets/humidity.png'
   import rain from '../../assets/rainy.png'
  import search from '../../assets/search.png'
  import snow from '../../assets/snowflake.png'
@@ -20,7 +20,7 @@ export const WeatherApp = () => {
         </div>
       </div>
       <div className="weather-img">
-        <img src={cloudy} alt="" />
+        <img src={cloudy} alt="cloud-icon" />
       </div>
       <div className="weather-temp">13°</div>
       <div className="weather-location">Milan</div>
@@ -33,7 +33,7 @@ export const WeatherApp = () => {
           </div>
         </div>
         <div className="element">
-          <img src={wind} alt="" className="icon" />
+          <img src={wind} alt="wind-icon" className="icon" />
           <div className="data">
             <div className="humidity">18 km/h</div>
             <div className="text">Wind Speed</div>
