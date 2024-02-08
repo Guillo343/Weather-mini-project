@@ -20,21 +20,7 @@ export const WeatherApp = () => {
 
   const apiKey = "a4b29e58064116cdb7e7d6c588023a47";
 
-  const [inputValue, setInputValue] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
-  const handleInputChange = (event) => {
-    const value = event.target.value;
-    setInputValue(value);
-    const suggestions = ['New York', 'London', 'Paris', 'Tokyo'].filter(suggestion =>
-      suggestion.toLowerCase().includes(value.toLowerCase())
-    );
-    setSuggestions(suggestions);
-  };
 
-  const handleSuggestionClick = (suggestion) => {
-    setInputValue(suggestion);
-    setSuggestions([]);
-  };
 
   const searchWeather = async () => {
     try {
@@ -89,8 +75,7 @@ export const WeatherApp = () => {
   return (
     <div className='container-weather'>
       <div className="top-bar">
-        <input type='text' className='cityInp' placeholder='Write a City' value={inputValue}
-          onChange={handleInputChange}/>
+        <input type='text' className='cityInp' placeholder='Write a City'/>
         <div className="search-icon" onClick={searchWeather}>
           <img src={logo} alt="search-logo" />
         </div>
