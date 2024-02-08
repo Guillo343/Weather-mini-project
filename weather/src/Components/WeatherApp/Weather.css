@@ -4,7 +4,9 @@
     margin: auto;
     margin-top: 75px;
     border-radius: 12px;
-    background-image: linear-gradient(180deg, #130754 0%, #3d2f80 100%);
+    /* background-image: linear-gradient(180deg, #130754 0%, #3d2f80 100%); */
+    background-image: radial-gradient(circle, #130754 0%, #160866 33%, #3d2f80 100%);
+    ;
 
 }
 .top-bar{

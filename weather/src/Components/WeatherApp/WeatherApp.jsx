@@ -7,6 +7,7 @@ import humidityIcon from '../../assets/humidity.png';
 import rain from '../../assets/rainy.png';
 import snow from '../../assets/snowflake.png';
 import sun from '../../assets/sun.png';
+import logo from '../../assets/search.png';
 
 export const WeatherApp = () => {
   const [weatherIcon, setWeatherIcon] = useState(cloudy);
@@ -18,6 +19,22 @@ export const WeatherApp = () => {
   });
 
   const apiKey = "a4b29e58064116cdb7e7d6c588023a47";
+
+  const [inputValue, setInputValue] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value);
+    const suggestions = ['New York', 'London', 'Paris', 'Tokyo'].filter(suggestion =>
+      suggestion.toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(suggestions);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setInputValue(suggestion);
+    setSuggestions([]);
+  };
 
   const searchWeather = async () => {
     try {
@@ -72,10 +89,12 @@ export const WeatherApp = () => {
   return (
     <div className='container-weather'>
       <div className="top-bar">
-        <input type='text' className='cityInp' placeholder='Write a City'/>
+        <input type='text' className='cityInp' placeholder='Write a City' value={inputValue}
+          onChange={handleInputChange}/>
         <div className="search-icon" onClick={searchWeather}>
-          <img src={weatherIcon} alt="search-logo" />
+          <img src={logo} alt="search-logo" />
         </div>
+
       </div>
       <div className="weather-img">
         <img src={weatherIcon} alt="weather-icon" />
